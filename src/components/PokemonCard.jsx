@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import "../components/PokemonCard.css";
 function PokemonCard ({pokemon}) {
     const { name, imgSrc } = pokemon;
    return (
