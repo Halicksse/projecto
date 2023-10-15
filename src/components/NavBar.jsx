@@ -1,21 +1,13 @@
-import "../components/NavBar.css";
+import "./NavBar.css";
 
-function NavBar({ previousButton, nextButton, handleNext, handlePrevious }) {
-  return (
-    <div className="NavBar">
-      {previousButton && (
-        <button className="button" onClick={handlePrevious}>
-          Précédent
-        </button>
-      )}
-
-      {nextButton && (
-        <button className="button" onClick={handleNext}>
-          Suivant
-        </button>
-      )}
-    </div>
-  );
+function NavBar({ superProps, setPokemonIndex }) {
+  return superProps.map((pokemonIndex) => {
+    return (
+      <button key={pokemonIndex} onClick={() => setPokemonIndex(pokemonIndex)}>
+        {pokemonIndex.name}
+      </button>
+    );
+  });
 }
 
 export default NavBar;
