@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import PokemonCard from "./components/PokemonCard.jsx";
 import NavBar from "./components/NavBar.jsx";
@@ -32,17 +32,22 @@ const pokemonList = [
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
  
-  const selectPokemon = (selectedPokemon) => {
-    setPokemonIndex(pokemonList.map((pokemon) => pokemon.name ).indexOf(selectedPokemon.name));
-};
+  useEffect(() => {
+  alert("hello pokemon trainer :)");
+}, []);
+
+
+//   const selectPokemon = (selectedPokemon) => {
+//     setPokemonIndex(pokemonList.map((pokemon) => pokemon.name ).indexOf(selectedPokemon.name));
+// };
 
   return (
     <div>
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
       <NavBar
-        superProps={pokemonList}
-        pokemonIndex={pokemonList[pokemonIndex]}
-        setPokemonIndex={selectPokemon}
+        pokemonList={pokemonList}
+        pokemonIndex={pokemonIndex}
+        setPokemonIndex={setPokemonIndex}
         />
     </div>
   );

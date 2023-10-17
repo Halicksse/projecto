@@ -1,13 +1,21 @@
 import "./NavBar.css";
 
-function NavBar({ superProps, setPokemonIndex }) {
-  return superProps.map((pokemonIndex) => {
-    return (
-      <button key={pokemonIndex} onClick={() => setPokemonIndex(pokemonIndex)}>
-        {pokemonIndex.name}
-      </button>
-    );
-  });
+function NavBar({ setPokemonIndex, pokemonIndex, pokemonList }) {
+  {
+    pokemonIndex === 3 ? alert("pika pikachu!!!") : "";
+  }
+  const clickName = (pokeplus) => {
+    setPokemonIndex(pokemonList.indexOf(pokeplus));
+  };
+  return (
+    <>
+      {pokemonList.map((pokeplus) => (
+        <button onClick={() => clickName(pokeplus)} key={pokeplus.name}>
+          {pokeplus.name}
+        </button>
+      ))}
+    </>
+  );
 }
 
 export default NavBar;
